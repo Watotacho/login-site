@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+</head>
+  <body>
+{%block content%}
+{% endblock %}
+{% comment %} {% if form.errors %}
+<p>There's something wrong with what you entered</p>
+ {% endif %}
+ {% if next %}
+ <p>Hey,you can't access that page</p>
+ {% endif %}
+ <form method="post" action="{% url 'LOGIN' %}">
+     {% csrf_token %}
+     <p>Username: {{form.username}}</p>
+     <p>Password: {{form.password}}</p>
+     <p><input type="submit" = value="login"></p>
+     <input type="hidden" name="next" value="{{ next }}">
+  </form> {% endcomment %}
+  </body>
+</html>
